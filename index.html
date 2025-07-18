@@ -13,13 +13,16 @@
     }
   </style>
   <script>
-  // Only redirect to HTTPS if NOT already on HTTPS and hostname is NOT localhost
-  if (
-    window.location.protocol !== 'https:' &&
-    window.location.hostname !== 'localhost'
-  ) {
-    window.location.href = 'https://' + window.location.hostname + window.location.pathname + window.location.search;
-  }
+  // Final-safe redirect: ONLY run if on HTTP and not on localhost
+  (function () {
+    const isLocalhost = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+    const isHttp = window.location.protocol === 'http:';
+
+    if (isHttp && !isLocalhost) {
+      const newUrl = 'https://' + window.location.hostname + window.location.pathname + window.location.search;
+      window.location.replace(newUrl);
+    }
+  })();
 </script>
 
 </head>
