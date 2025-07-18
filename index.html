@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="refresh" content="0; url=https://resumebuilder.parshantyadav.com">
   <title>Resume Builder</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -11,6 +12,12 @@
       box-shadow: 0 0 20px rgba(59,130,246,0.7);
     }
   </style>
+  <script>
+  if (location.protocol !== 'https:') {
+    location.replace(`https:${location.href.substring(location.protocol.length)}`);
+  }
+</script>
+
 </head>
 <body class="bg-gray-950 text-white min-h-screen flex items-center justify-center px-4">
 
